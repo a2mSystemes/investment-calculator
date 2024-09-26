@@ -1,0 +1,25 @@
+@if (hasResults()) {
+
+  <table class="center">
+    <thead>
+  <tr>
+    <th scope="col">Year</th>
+    <th scope="col">Investment Value</th>
+    <th scope="col">Interest (Year)</th>
+    <th scope="col">Total Interest</th>
+    <th scope="col">Invested Capital</th>
+  </tr>
+    </thead>
+    <tbody>
+      @for (result of getResults(); track result.year) {
+        <app-investment-results-line [resultData]="result"/>
+
+      }
+    </tbody>
+  </table>
+}
+@else {
+  <div class="center">
+    <p>Please enter some values and press "calculate"</p>
+  </div>
+}

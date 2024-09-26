@@ -1,0 +1,8 @@
+
+tr {
+  width: 100%;
+}
+td{
+  min-width: 150px;
+  max-width: 250px;
+}
