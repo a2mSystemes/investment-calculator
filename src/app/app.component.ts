@@ -22,7 +22,8 @@ export class AppComponent {
     annualInvestment: number,
     totalInterest: number,
     totalAmountInvested: number,
-  }[] | undefined >([]);
+  }[] | undefined >(undefined);
+
 
   onCalculateInvestmentResults(data: InvestmentInput): any {
     const annualData = [];
