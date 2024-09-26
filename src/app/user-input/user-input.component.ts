@@ -1,6 +1,18 @@
-import { Component, EventEmitter, Output, signal } from '@angular/core';
+import { Component, EventEmitter, output, Output, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { type InvestmentInput } from '../investment-input.model';
+
+// dev values
+const A = 100000;
+const B = 1000;
+const C = 50;
+const D = 10;
+// uncoment for production
+// const A = 0;
+// const B = 0;
+// const C = 0;
+// const D = 0;
+
 
 @Component({
   selector: 'app-user-input',
@@ -10,30 +22,22 @@ import { type InvestmentInput } from '../investment-input.model';
   styleUrl: './user-input.component.css'
 })
 export class UserInputComponent {
-  @Output() calculate = new EventEmitter<InvestmentInput>();
-userInitialInvestment = signal<number>(100000);
-userAnnualInvestment = signal<number>(1000);
-userExpectedReturn = signal<number>(50);
-userDuration = signal<number>(10);
+calculate = output<InvestmentInput>();
+userInitialInvestment = signal<number>(A);
+userAnnualInvestment = signal<number>(B);
+userExpectedReturn = signal<number>(C);
+userDuration = signal<number>(D);
 
   onSubmit() {
-    // console.log('onSubmit()');
-    // console.log(this.userInitialInvestment);
-    // console.log(this.userAnnualInvestment);
-    // console.log(this.userExpectedReturn);
-    // console.log(this.userDuration);
-    // to convert string to number (supposing user input is a string) :
-    // this.calculate.emit({
-    //   initialInvestment: +this.userInitialInvestment,
-    //   annualInvestment: +this.userAnnualInvestment,
-    //   expectedReturn: +this.userExpectedReturn,
-    //   duration: +this.userDuration
-    // });
     this.calculate.emit({
       initialInvestment: this.userInitialInvestment(),
       annualInvestment: this.userAnnualInvestment(),
       expectedReturn: this.userExpectedReturn(),
       duration: this.userDuration()
     });
+    this.userInitialInvestment.set(A),
+    this.userAnnualInvestment.set(B),
+    this.userExpectedReturn.set(C),
+    this.userDuration.set(D)
   }
 }
