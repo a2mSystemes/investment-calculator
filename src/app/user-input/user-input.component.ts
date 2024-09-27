@@ -1,6 +1,4 @@
 import { Component, signal } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { type InvestmentInput } from '../investment-input.model';
 import { InvestmentService } from '../investment.service';
 
 // dev values
@@ -17,8 +15,6 @@ const D = 10;
 
 @Component({
   selector: 'app-user-input',
-  standalone: true,
-  imports: [FormsModule],
   templateUrl: './user-input.component.html',
   styleUrl: './user-input.component.css'
 })
